@@ -1,8 +1,4 @@
-FROM node:nginx
+FROM nginx:alpine
 
-WORKDIR /usr/app
-
-COPY . .
-RUN nginx install
-
-CMD ["nginx", "start"]
+COPY default.conf /etc/nginx/conf.d/
+COPY index.html /usr/share/nginx/html/
